@@ -29,8 +29,27 @@ public class Lab6 {
 		} while (again == 'y');
 	}
 	public static void rollBothDice(int numSides) {
-		System.out.println(getDieRoll(numSides));
-		System.out.println(getDieRoll(numSides));
+		int roll1 = getDieRoll(numSides), roll2 = getDieRoll(numSides), sum = roll1 + roll2;
+		
+		System.out.println(roll1);
+		System.out.println(roll2);
+		
+		switch (sum) {
+		case 2:
+			System.out.println("Snake eyes!");
+		case 3:
+			System.out.println("Craps!");
+			break;
+		case 12:
+			if (roll1 == roll2) {
+				System.out.println("Boxcar!");
+			}
+			System.out.println("Craps!");
+			break;
+			default:
+				break;
+		}
+		
 	}
 	public static int getDieRoll(int numSides) {
 		return ((int) Math.ceil(Math.random() * numSides));
@@ -38,6 +57,14 @@ public class Lab6 {
 	public static int getDieRoll2(int numSides) {
 		Random r = new Random();
 		return r.nextInt(numSides);
+	}
+	public static void rollAndPrintMsg(int numSides) {
+		int i = getDieRoll(numSides);
+		printMsg(i);
+		System.out.println(i);
+	}
+	public static void printMsg(int roll) {
+		
 	}
 }
 
